@@ -1,0 +1,2 @@
+# react_2022_2023
+React_stack_2022-2023_TypeScript_Redux_Toolkit_RTKQuery_Tailwind
