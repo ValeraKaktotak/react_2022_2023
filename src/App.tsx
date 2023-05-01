@@ -1,7 +1,15 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import FavoritePages from './pages/FavoritePages'
 
 function App() {
-  return <div className="font-bold text-red-950 bg-blue-600">HELLO REACT :)</div>
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="favorites" element={<FavoritePages />} />
+    </Routes>
+  )
 }
 
 export default App
