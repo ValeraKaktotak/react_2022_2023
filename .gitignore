@@ -1,7 +1,5 @@
 .idea
-my-app/node_modules
-info
-HTML_TEMPLATES
+node_modules
 
 # dependencies
 /node_modules
