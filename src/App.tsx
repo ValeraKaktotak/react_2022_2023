@@ -7,6 +7,7 @@ import Navigation from './components/Navigation'
 
 function App() {
   const { isLoading, isError, data } = useSearchUsersQuery('ValeraKaktotak')
+  console.log(data)
   return (
     <>
       <Navigation />
