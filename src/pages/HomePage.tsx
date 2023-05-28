@@ -10,7 +10,7 @@ function HomePage() {
   const [fetchRepos, { isLoading: reposLoading, isError: reposError, data: reposData }] = useLazyGetUserReposQuery()
 
   const userRepositories = (userName: string) => {
-    console.log(userName)
+    fetchRepos(userName)
   }
 
   useEffect(() => {
@@ -43,6 +43,7 @@ function HomePage() {
               ))}
             </ul>
           )}
+          <div className="container">{reposLoading && <p>Repositories loading...</p>}</div>
         </div>
       </div>
     </>
