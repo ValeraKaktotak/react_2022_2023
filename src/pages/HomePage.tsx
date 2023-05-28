@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useSearchUsersQuery } from '../store/github/github.api'
+import { useLazyGetUserReposQuery, useSearchUsersQuery } from '../store/github/github.api'
 import { useMyDebounce } from '../hooks/debounce'
 
 function HomePage() {
@@ -7,6 +7,7 @@ function HomePage() {
   const [dropdown, setDropdown] = useState(false)
   const debounce = useMyDebounce(search)
   const { isLoading, isError, data } = useSearchUsersQuery(debounce, { skip: debounce === '', refetchOnFocus: true })
+  const [fetchRepos, { isLoading: reposLoading, isError: reposError, data: reposData }] = useLazyGetUserReposQuery()
 
   const userRepositories = (userName: string) => {
     console.log(userName)
