@@ -6,6 +6,7 @@ export const githubApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://api.github.com/',
   }),
+  refetchOnFocus: true,
   endpoints: (build) => ({
     searchUsers: build.query<User[], string>({
       query: (search: string) => ({

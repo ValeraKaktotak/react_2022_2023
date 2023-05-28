@@ -6,7 +6,7 @@ function HomePage() {
   const [search, setSearch] = useState('')
   const [dropdown, setDropdown] = useState(false)
   const debounce = useMyDebounce(search)
-  const { isLoading, isError, data } = useSearchUsersQuery(debounce, { skip: debounce === '' })
+  const { isLoading, isError, data } = useSearchUsersQuery(debounce, { skip: debounce === '', refetchOnFocus: true })
 
   useEffect(() => {
     setDropdown(debounce !== '' && data?.length! > 0)
