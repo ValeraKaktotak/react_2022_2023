@@ -8,6 +8,10 @@ function HomePage() {
   const debounce = useMyDebounce(search)
   const { isLoading, isError, data } = useSearchUsersQuery(debounce, { skip: debounce === '', refetchOnFocus: true })
 
+  const userRepositories = (userName: string) => {
+    console.log(userName)
+  }
+
   useEffect(() => {
     setDropdown(debounce !== '' && data?.length! > 0)
   }, [debounce, data])
@@ -30,6 +34,7 @@ function HomePage() {
               {data?.map((item) => (
                 <li
                   key={item.id}
+                  onClick={() => userRepositories(item.login)}
                   className="py-2 px-4 hover:bg-slate-500 hover:text-cyan-200 transition-colors cursor-pointer"
                 >
                   {item.login}

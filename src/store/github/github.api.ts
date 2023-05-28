@@ -18,6 +18,11 @@ export const githubApi = createApi({
       }),
       transformResponse: (response: ServerResponse<User>) => response.items,
     }),
+    GetUserRepos: build.query<any, string>({
+      query: (userName: string) => ({
+        url: `users/${userName}/repos`,
+      }),
+    }),
   }),
 })
 
